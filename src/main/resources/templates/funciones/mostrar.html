@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html lang="en"
-      xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Agenda</title>
+
+    <title>Mostrar contactos</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -14,7 +13,6 @@
     <link rel="stylesheet" href="../css/agenda.css" type='text/css' />
 </head>
 <body>
-
     <div class="container">
         <nav class="navbar navbar-default">
             <div class="container-fluid">
@@ -26,25 +24,50 @@
                         <li class="active"><a href="/">Home</a></li>
                         <li><a th:href="@{/agregar}" role="button">Agregar contacto</a></li>
                         <li><a th:href="@{/mostrar}" role="button">Mostrar contacto</a></li>
-                        <li><a th:href="@{/mostrar}" role="button">Modificar contacto</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a th:href="@{/mostrar}" role="button">Eliminar contacto</a></li>
+                        <li><a th:href="@{#}" role="button">Eliminar contacto</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
     </div>
 
+
+
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
-                <div class="list-group">
-                    <a class="list-group-item item" th:href="@{/agregar}">Agregar contacto</a>
-                    <a class="list-group-item item" th:href="@{/mostrar}">Mostrar contactos</a>
-                    <a class="list-group-item item" href="#">Modificar contacto</a>
-                    <a class="list-group-item item" th:href="@{/mostrar">Eliminar contacto</a>
+                <h2>Contactos</h2>
 
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Teléfono</th>
+                        <th>Editar</th>
+                        <th>Borrar</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="contacto : ${contactos}">
+                        <td th:text="${contacto.nombre}"></td>
+                        <td th:text="${contacto.apellido}"></td>
+                        <td th:text="${contacto.telefono}"></td>
+                        <td th:href="@{#}">Editar</td>
+                        <td><a th:href="@{/eliminar/} + ${contacto.telefono}"> borrar</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <br/><br/>
+
+                <p th:if="${contactos.size() == 0}">
+                <div class="alert alert-warning" role="alert">No Contacts Found.</div>
+                </p>
+                <div th:if="${message}" class="alert alert-success" role="alert">
+                    <p th:text="${message}">success message</p>
                 </div>
             </div>
         </div>

@@ -1,5 +1,6 @@
 package com.example.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -10,17 +11,19 @@ import javax.persistence.Id;
 @Entity
 public class Contacto {
 
-	@Id
-	@GeneratedValue
+
 	private String nombre;
+
 	private String apellido;
-	private String telefono;
+
+	@Id
+	private Integer telefono;
 
 	public Contacto() {
 		this.nombre = nombre;
 	}
 
-	public Contacto(String nombre, String apellido, String telefono) {
+	public Contacto(String nombre, String apellido, Integer telefono) {
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.telefono = telefono;
@@ -42,11 +45,11 @@ public class Contacto {
 		this.apellido = apellido;
 	}
 
-	public String getTelefono() {
+	public Integer getTelefono() {
 		return telefono;
 	}
 
-	public void setTelefono(String telefono) {
+	public void setTelefono(Integer telefono) {
 		this.telefono = telefono;
 	}
 }
