@@ -26,7 +26,6 @@
                     <ul class="nav navbar-nav">
                         <li><a th:href="@{/agregar}" role="button">Agregar contacto</a></li>
                         <li><a th:href="@{/mostrar}" role="button">Mostrar contactos</a></li>
-                        <li><a th:href="@{/mostrar}" role="button">Modificar contacto</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a th:href="@{/mostrar}" role="button">Eliminar contacto</a></li>
@@ -36,14 +35,14 @@
         </nav>
     </div>
 
-    <div class="container">
+    <div class="container body">
         <div class="row">
-            <div class="col-sm-3"></div>
-            <div class="col-sm-6">
-                <div class="list-group">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <div class="list-group center">
                     <a class="list-group-item item" th:href="@{/agregar}">Agregar contacto</a>
                     <a class="list-group-item item" th:href="@{/mostrar}">Mostrar contactos</a>
-                    <a class="list-group-item item" href="#">Modificar contacto</a>
+                    <a class="list-group-item item" th:href="@{/mostrar}">Modificar contacto</a>
                     <a class="list-group-item item" th:href="@{/mostrar}">Eliminar contacto</a>
 
                 </div>

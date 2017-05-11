@@ -5,8 +5,6 @@ import com.example.repository.ContactoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 /**
  * Created by mariano.palliser on 08/05/2017.
  */
@@ -22,7 +20,7 @@ public class AgendaService {
 
 	}
 
-	public Contacto save(Contacto contacto){
+	public Contacto save(Contacto contacto) {
 
 		return agenda.save(contacto);
 

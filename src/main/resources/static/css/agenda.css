@@ -1,3 +1,11 @@
 body {
     background-image: url(../img/back.jpg);
 }
+
+.center {
+    text-align: center;
+}
+
+.body {
+    margin-top: 10%;
+}
