@@ -7,17 +7,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="../css/agenda.css" type='text/css' />
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/agenda.css" type='text/css' />
 
 </head>
 <body>
 
     <div class="container">
-        <nav class="navbar navbar-default">
+        <nav class="navbar navbar-default navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="/">Agenda Web</a>
@@ -39,32 +39,39 @@
     <div class="container">
         <div class="container">
             <div class="row">
+                <div class="col-sm-3"></div>
+
                 <div class="col-sm-6">
                     <h2>Agregar contacto</h2>
 
                     <form class="form-horizontal item" th:object="${contacto}" th:action="@{/agregar/save}" method="post">
-                        <div class="form-group">
+                        <div th:class="form-group" th:classappend="${#fields.hasErrors('nombre')}? 'has-error'">
                             <label class="col-sm-2 control-label">Nombre </label>
                             <div class="col-md-10">
                                 <input type="text" class="form-control" th:field="*{nombre}" />
+                                <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}" th:class="help-block">Title Errors</span>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div th:class="form-group" th:classappend="${#fields.hasErrors('apellido')}? 'has-error'">
                             <label class="col-sm-2 control-label">Apellido</label>
                             <div class="col-md-10">
                                 <input type="text" class="form-control" th:field="*{apellido}" />
+                                <span th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}" th:class="help-block">Title Errors</span>
+
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div th:class="form-group" th:classappend="${#fields.hasErrors('telefono')}? 'has-error'">
                             <label class="col-sm-2 control-label">Teléfono</label>
                             <div class="col-md-10">
                                 <input type="text" class="form-control" th:field="*{telefono}" />
+                                <span th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}" th:class="help-block">Title Errors</span>
                             </div>
                         </div>
                         <div th:if="${message}" class="alert alert-success" role="alert">
                             <p th:text="${message}">success message</p>
                         </div>
                         <button type="submit" class=" btn btn-default">Guardar</button>
+
                     </form>
                 </div>
             </div>

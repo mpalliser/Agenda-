@@ -11,5 +11,5 @@ import java.util.List;
  */
 @Repository
 public interface ContactoRepository extends CrudRepository<Contacto, Integer> {
-	Contacto findContactoByNombre(String nombre);
+
 }

@@ -17,19 +17,33 @@ public class AgendaService {
 
 	@Autowired
 	public AgendaService(ContactoRepository agenda) {
+
 		this.agenda = agenda;
+
 	}
 
 	public Contacto save(Contacto contacto){
+
 		return agenda.save(contacto);
+
 	}
 
 	public Iterable<Contacto> list() {
+
 		return agenda.findAll();
+
 	}
 
 	public void eliminar(int telefono) {
+
 		agenda.delete(telefono);
+
+	}
+
+	public Contacto get(Integer telefono) {
+
+		return agenda.findOne(telefono);
+
 	}
 
 }

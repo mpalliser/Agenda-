@@ -17,11 +17,14 @@ public class DataLoader {
 
 	@Autowired
 	public DataLoader(ContactoRepository agenda) {
+
 		this.agenda = agenda;
+
 	}
 
 	@PostConstruct
 	private void loadData() {
+
 		agenda.deleteAll();
 
 		agenda.save(new Contacto("Ana", "Dominguez", 666666666));
@@ -30,4 +33,5 @@ public class DataLoader {
 		agenda.save(new Contacto("Lluis", "Muñoz", 333333333));
 
 	}
+
 }

@@ -7,25 +7,30 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <link rel="stylesheet" href="../css/agenda.css" type='text/css' />
+
 </head>
 <body>
 
     <div class="container">
-        <nav class="navbar navbar-default">
+        <nav class="navbar navbar-default navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="/">Agenda Web</a>
                 </div>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="/">Home</a></li>
+                    <style>
+                        .barra {
+                            color: white;
+                        }
+                    </style>
+                    <ul class="barra nav navbar-nav">
                         <li><a th:href="@{/agregar}" role="button">Agregar contacto</a></li>
-                        <li><a th:href="@{/mostrar}" role="button">Mostrar contacto</a></li>
+                        <li><a th:href="@{/mostrar}" role="button">Mostrar contactos</a></li>
                         <li><a th:href="@{/mostrar}" role="button">Modificar contacto</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
@@ -38,12 +43,13 @@
 
     <div class="container">
         <div class="row">
+            <div class="col-sm-3"></div>
             <div class="col-sm-6">
                 <div class="list-group">
                     <a class="list-group-item item" th:href="@{/agregar}">Agregar contacto</a>
                     <a class="list-group-item item" th:href="@{/mostrar}">Mostrar contactos</a>
                     <a class="list-group-item item" href="#">Modificar contacto</a>
-                    <a class="list-group-item item" th:href="@{/mostrar">Eliminar contacto</a>
+                    <a class="list-group-item item" th:href="@{/mostrar}">Eliminar contacto</a>
 
                 </div>
             </div>

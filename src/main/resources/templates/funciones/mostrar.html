@@ -6,15 +6,16 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <link rel="stylesheet" href="../css/agenda.css" type='text/css' />
+
 </head>
 <body>
     <div class="container">
-        <nav class="navbar navbar-default">
+        <nav class="navbar navbar-default navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="/">Agenda Web</a>
@@ -26,7 +27,7 @@
                         <li><a th:href="@{/mostrar}" role="button">Mostrar contacto</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a th:href="@{#}" role="button">Eliminar contacto</a></li>
+                        <li><a th:href="@{/mostrar}" role="button">Eliminar contacto</a></li>
                     </ul>
                 </div>
             </div>
@@ -37,6 +38,8 @@
 
     <div class="container">
         <div class="row">
+            <div class="col-sm-3"></div>
+
             <div class="col-sm-6">
                 <h2>Contactos</h2>
 
@@ -55,8 +58,8 @@
                         <td th:text="${contacto.nombre}"></td>
                         <td th:text="${contacto.apellido}"></td>
                         <td th:text="${contacto.telefono}"></td>
-                        <td th:href="@{#}">Editar</td>
-                        <td><a th:href="@{/eliminar/} + ${contacto.telefono}"> borrar</a></td>
+                        <td><a th:href="@{/editar/} + ${contacto.telefono}">Editar</a></td>
+                        <td><a th:href="@{/eliminar/} + ${contacto.telefono}"> Borrar</a></td>
                     </tr>
                     </tbody>
                 </table>
