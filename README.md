@@ -1,3 +1,7 @@
 # Diary-proyect
 
-Proyecto realizado con SpringBoot/Thymeleaf/Bootstrap/Jpa.
+Proyecto realizado como introducción a SpringBoot, el cual incluye las siguientes tecnologías: 
+* SpringBoot
+* Thymeleaf
+* Bootstrap
+* Jpa+H2.
