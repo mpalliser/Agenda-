@@ -65,19 +65,19 @@ public class AgendaController {
 
 	}
 
-	@RequestMapping("/eliminar/{telefono}")
-	public String eliminar(@PathVariable int telefono, RedirectAttributes redirectAttrs){
+	@RequestMapping("/eliminar/{id}")
+	public String eliminar(@PathVariable Integer id, RedirectAttributes redirectAttrs){
 
-		agendaService.eliminar(telefono);
+		agendaService.eliminar(id);
 		redirectAttrs.addFlashAttribute("message", "Contacto borrado correctamente");
 		return "redirect:/mostrar";
 
 	}
 
-	@RequestMapping("/editar/{telefono}")
-	public String editar(@PathVariable Integer telefono, Model model) {
+	@RequestMapping("/editar/{id}")
+	public String editar(@PathVariable Integer id, Model model) {
 
-		model.addAttribute("contacto", agendaService.get(telefono));
+		model.addAttribute("contacto", agendaService.get(id));
 		return "funciones/agregar";
 
 	}

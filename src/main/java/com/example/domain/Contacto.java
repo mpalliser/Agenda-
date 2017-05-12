@@ -3,6 +3,7 @@ package com.example.domain;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
@@ -12,13 +13,15 @@ import javax.validation.constraints.NotNull;
 @Entity
 public class Contacto {
 
+	@Id @GeneratedValue
+	private Integer id;
+
 	@NotEmpty
 	private String nombre;
 
 	@NotEmpty
 	private String apellido;
 
-	@Id
 	@NotNull
 	private Integer telefono;
 
@@ -30,8 +33,16 @@ public class Contacto {
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.telefono = telefono;
+
 	}
 
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
 	public String getNombre() {
 		return nombre;
 	}

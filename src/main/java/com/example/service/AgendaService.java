@@ -32,15 +32,15 @@ public class AgendaService {
 
 	}
 
-	public void eliminar(int telefono) {
+	public void eliminar(Integer id) {
 
-		agenda.delete(telefono);
+		agenda.delete(id);
 
 	}
 
-	public Contacto get(Integer telefono) {
+	public Contacto get(Integer id) {
 
-		return agenda.findOne(telefono);
+		return agenda.findOne(id);
 
 	}
 
